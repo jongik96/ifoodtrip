@@ -213,26 +213,28 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     const tableName = `blog_${currentLocale}` as 'blog_ja' | 'blog_en' | 'blog_ko' | 'blog_fr';
     
     // 게시물 조회
-    const { data: post, error } = await supabase
-      .from(tableName)
+    // @ts-ignore - Supabase 타입 추론 문제 우회
+    const { data: postData, error } = await (supabase.from(tableName) as any)
       .select('*')
       .eq('status', 'posted')
       .eq('id', id)
       .single();
 
-    if (error || !post) {
+    if (error || !postData) {
       return {
         notFound: true,
       };
     }
+
+    const post = postData as BlogPost;
 
     // 이전/다음 게시물 조회
     let previousPost: BlogNavPost | null = null;
     let nextPost: BlogNavPost | null = null;
 
     if (post.previous_post) {
-      const { data } = await supabase
-        .from(tableName)
+      // @ts-ignore - Supabase 타입 추론 문제 우회
+      const { data } = await (supabase.from(tableName) as any)
         .select('id, title')
         .eq('id', post.previous_post)
         .eq('status', 'posted')
@@ -244,8 +246,8 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     }
 
     if (post.next_post) {
-      const { data } = await supabase
-        .from(tableName)
+      // @ts-ignore - Supabase 타입 추론 문제 우회
+      const { data } = await (supabase.from(tableName) as any)
         .select('id, title')
         .eq('id', post.next_post)
         .eq('status', 'posted')

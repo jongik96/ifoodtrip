@@ -19,20 +19,21 @@ export default async function handler(
     const { recipe, recipeType }: RequestBody = req.body;
 
     // 회원 기능 없이 레시피 저장 (user_id는 항상 null)
-    const { data, error } = await supabase
-      .from('recipes')
-      .insert({
-        user_id: null, // 회원 기능 없이 사용
-        title: recipe.title,
-        country: recipe.country || null,
-        servings: recipe.servings,
-        ingredients_json: recipe.ingredients,
-        steps_md: recipe.markdown || (Array.isArray(recipe.instructions) ? recipe.instructions.join('\n') : ''),
-        nutrition_json: recipe.nutritionInfo || null,
-        time_minutes: recipe.cookingTime,
-        difficulty: recipe.difficulty,
-        public_bool: false,
-      })
+    const recipeData = {
+      user_id: null, // 회원 기능 없이 사용
+      title: recipe.title,
+      country: recipe.country || null,
+      servings: recipe.servings,
+      ingredients_json: recipe.ingredients,
+      steps_md: recipe.markdown || (Array.isArray(recipe.instructions) ? recipe.instructions.join('\n') : ''),
+      nutrition_json: recipe.nutritionInfo || null,
+      time_minutes: recipe.cookingTime,
+      difficulty: recipe.difficulty,
+      public_bool: false,
+    };
+    // @ts-ignore - Supabase 타입 추론 문제 우회
+    const { data, error } = await (supabase.from('recipes') as any)
+      .insert([recipeData])
       .select()
       .single();
 

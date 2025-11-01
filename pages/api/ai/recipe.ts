@@ -73,8 +73,8 @@ export default async function handler(
     // AI 요청 로그 저장 (타입 체크 우회)
     if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
       try {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const logData: any = {
+        // @ts-ignore - Supabase 타입 추론 문제 우회
+        const logData = {
           prompt_hash: promptHash,
           model: 'gpt-4',
           tokens_in: usage?.prompt_tokens || 0,
@@ -82,8 +82,8 @@ export default async function handler(
           response_excerpt: recipeMarkdown.substring(0, 200),
           status: 'success',
         };
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        await (supabase.from('ai_requests_log') as any).insert([logData]);
+        // @ts-ignore - Supabase 타입 추론 문제 우회
+        await supabase.from('ai_requests_log').insert([logData]);
       } catch (logError) {
         console.error('Failed to log AI request:', logError);
       }

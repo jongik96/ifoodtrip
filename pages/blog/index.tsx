@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
@@ -25,11 +25,7 @@ const BlogListPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchPosts();
-  }, [currentLocale]);
-
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     try {
       setLoading(true);
       
@@ -51,7 +47,11 @@ const BlogListPage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [currentLocale]);
+
+  useEffect(() => {
+    fetchPosts();
+  }, [fetchPosts]);
 
   // 모든 태그 추출
   const allTags = Array.from(
