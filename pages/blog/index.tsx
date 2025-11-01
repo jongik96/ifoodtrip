@@ -93,10 +93,10 @@ const BlogListPage: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             {t('blog.title')}
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-700">
             {t('blog.subtitle')}
           </p>
         </div>
@@ -151,10 +151,10 @@ const BlogListPage: React.FC = () => {
                   <article className="card cursor-pointer hover:shadow-lg transition-shadow">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-2 hover:text-primary-600 transition-colors">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-2 hover:text-primary-600 transition-colors">
                           {post.title}
                         </h2>
-                        <p className="text-gray-600 mb-3 line-clamp-2">
+                        <p className="text-gray-900 mb-3 line-clamp-2">
                           {post.description}
                         </p>
                         <div className="flex flex-wrap items-center gap-3">

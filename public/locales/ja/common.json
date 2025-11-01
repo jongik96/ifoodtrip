@@ -78,7 +78,10 @@
     "step4Desc": "料理を作り、お気に入りのレシピを保存",
     "ctaTitle": "料理を始める準備はできましたか？",
     "ctaDescription": "AIが数秒で完璧なレシピを作成します！",
-    "ctaButton": "レシピ作成を始める"
+    "ctaButton": "レシピ作成を始める",
+    "blogSectionTitle": "世界料理ブログ",
+    "blogSectionDesc": "世界中の料理とその文化を探索しましょう",
+    "blogSectionButton": "ブログを見る"
   },
   "ingredientBased": {
     "title": "食材ベースレシピ",

@@ -90,7 +90,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post, previousPost, nex
         <article className="card">
           {/* Header */}
           <header className="mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               {post.title}
             </h1>
             
@@ -115,7 +115,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post, previousPost, nex
 
             {/* Description */}
             {post.description && (
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              <p className="text-lg text-gray-900 leading-relaxed mb-8">
                 {post.description}
               </p>
             )}
@@ -128,25 +128,43 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post, previousPost, nex
               rehypePlugins={[rehypeRaw]}
               components={{
                 h1: ({ node, ...props }) => (
-                  <h1 className="text-4xl font-bold text-gray-800 mb-4" {...props} />
+                  <h1 className="text-4xl font-bold text-gray-900 mb-4" {...props} />
                 ),
                 h2: ({ node, ...props }) => (
-                  <h2 className="text-2xl font-semibold text-gray-800 mt-6 mb-4" {...props} />
+                  <h2 className="text-2xl font-semibold text-gray-900 mt-6 mb-4" {...props} />
+                ),
+                h3: ({ node, ...props }) => (
+                  <h3 className="text-xl font-semibold text-gray-900 mt-4 mb-3" {...props} />
+                ),
+                h4: ({ node, ...props }) => (
+                  <h4 className="text-lg font-semibold text-gray-900 mt-3 mb-2" {...props} />
                 ),
                 ul: ({ node, ...props }) => (
-                  <ul className="list-disc list-inside space-y-2 my-4" {...props} />
+                  <ul className="list-disc list-inside space-y-2 my-4 text-gray-900" {...props} />
                 ),
                 ol: ({ node, ...props }) => (
-                  <ol className="list-decimal list-inside space-y-2 my-4" {...props} />
+                  <ol className="list-decimal list-inside space-y-2 my-4 text-gray-900" {...props} />
                 ),
                 li: ({ node, ...props }) => (
-                  <li className="text-gray-700" {...props} />
+                  <li className="text-gray-900" {...props} />
                 ),
                 p: ({ node, ...props }) => (
-                  <p className="text-gray-700 mb-4" {...props} />
+                  <p className="text-gray-900 mb-4 leading-relaxed" {...props} />
                 ),
                 strong: ({ node, ...props }) => (
-                  <strong className="font-semibold text-gray-800" {...props} />
+                  <strong className="font-semibold text-gray-900" {...props} />
+                ),
+                em: ({ node, ...props }) => (
+                  <em className="text-gray-900" {...props} />
+                ),
+                code: ({ node, ...props }) => (
+                  <code className="bg-gray-100 text-gray-900 px-1 py-0.5 rounded text-sm font-mono" {...props} />
+                ),
+                a: ({ node, ...props }) => (
+                  <a className="text-primary-600 hover:text-primary-700 underline" {...props} />
+                ),
+                blockquote: ({ node, ...props }) => (
+                  <blockquote className="border-l-4 border-primary-300 pl-4 italic text-gray-900 my-4" {...props} />
                 ),
               }}
             >

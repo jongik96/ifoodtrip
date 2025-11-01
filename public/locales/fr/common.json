@@ -78,7 +78,10 @@
     "step4Desc": "Cuisinez et enregistrez vos recettes préférées",
     "ctaTitle": "Prêt à Commencer la Cuisine?",
     "ctaDescription": "Laissez l'IA créer la recette parfaite pour vous en quelques secondes!",
-    "ctaButton": "Commencer à Créer des Recettes"
+    "ctaButton": "Commencer à Créer des Recettes",
+    "blogSectionTitle": "Blog de Cuisine Mondiale",
+    "blogSectionDesc": "Explorez les cuisines du monde entier et leurs cultures",
+    "blogSectionButton": "Voir le Blog"
   },
   "ingredientBased": {
     "title": "Recette Basée sur les Ingrédients",

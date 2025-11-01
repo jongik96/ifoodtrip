@@ -78,7 +78,10 @@
     "step4Desc": "Cook and save your favorite recipes",
     "ctaTitle": "Ready to Start Cooking?",
     "ctaDescription": "Let AI create the perfect recipe for you in seconds!",
-    "ctaButton": "Start Creating Recipes"
+    "ctaButton": "Start Creating Recipes",
+    "blogSectionTitle": "World Food Blog",
+    "blogSectionDesc": "Explore cuisines from around the world and their cultures",
+    "blogSectionButton": "View Blog"
   },
   "ingredientBased": {
     "title": "Ingredient-Based Recipe",

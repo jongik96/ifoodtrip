@@ -149,6 +149,34 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
+      {/* Blog Section */}
+      <div className="mt-12 md:mt-16 mb-12 md:mb-16">
+        <Link href="/blog" locale={currentLocale}>
+          <div className="group relative card cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+            <div className="relative z-10">
+              <div className="flex flex-col md:flex-row items-center md:items-center gap-6 md:gap-8">
+                <div className="text-6xl md:text-8xl transform group-hover:scale-110 transition-transform duration-300">
+                  📝
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4 group-hover:text-primary-600 transition-colors">
+                    {t('home.blogSectionTitle')}
+                  </h2>
+                  <p className="text-base md:text-lg text-gray-600 mb-4 md:mb-6 leading-relaxed">
+                    {t('home.blogSectionDesc')}
+                  </p>
+                  <div className="inline-flex items-center text-primary-600 font-semibold group-hover:text-primary-700 transition-colors">
+                    {t('home.blogSectionButton')}
+                    <span className="ml-2 transform group-hover:translate-x-2 transition-transform">→</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </div>
+
       {/* Modern CTA Section */}
       <div className="text-center mt-12 md:mt-16 mb-8">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-800 mb-4 md:mb-6 px-4">
