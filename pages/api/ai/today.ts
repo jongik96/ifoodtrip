@@ -63,18 +63,20 @@ export default async function handler(
     const usage = completion.usage;
 
     // AI 요청 로그 저장
-    try {
-      const logData: Database['public']['Tables']['ai_requests_log']['Insert'] = {
-        prompt_hash: promptHash,
-        model: 'gpt-4',
-        tokens_in: usage?.prompt_tokens || 0,
-        tokens_out: usage?.completion_tokens || 0,
-        response_excerpt: recipeMarkdown.substring(0, 200),
-        status: 'success',
-      };
-      await supabase.from('ai_requests_log').insert(logData);
-    } catch (logError) {
-      console.error('Failed to log AI request:', logError);
+    if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      try {
+        const logData: Database['public']['Tables']['ai_requests_log']['Insert'] = {
+          prompt_hash: promptHash,
+          model: 'gpt-4',
+          tokens_in: usage?.prompt_tokens || 0,
+          tokens_out: usage?.completion_tokens || 0,
+          response_excerpt: recipeMarkdown.substring(0, 200),
+          status: 'success',
+        };
+        await supabase.from('ai_requests_log').insert([logData] as any);
+      } catch (logError) {
+        console.error('Failed to log AI request:', logError);
+      }
     }
 
     const metadata = {
