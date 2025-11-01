@@ -1,0 +1,2 @@
+# ifoodtrip
+global ai recipe
