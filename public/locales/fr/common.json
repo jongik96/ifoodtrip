@@ -291,6 +291,11 @@
     "nextPost": "Article Suivant",
     "noPrevious": "Aucun article précédent",
     "noNext": "Aucun article suivant"
+  },
+  "seo": {
+    "siteName": "iFoodTrip",
+    "description": "Générateur de recettes alimenté par l'IA - Créez des recettes de cuisine parfaites avec vos ingrédients disponibles",
+    "keywords": "recettes, cuisine, recettes IA, cuisine coréenne, cuisine japonaise, régime, plan de repas"
   }
 }
 

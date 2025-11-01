@@ -8,6 +8,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import CountrySelector from '@/components/CountrySelector';
 import { Recipe, RecipeFilters } from '@/types/recipe';
 import { Country } from '@/types/database';
+import { SEO } from '@/lib/seo';
 
 // 카테고리별 재료 매핑
 const ingredientCategories = {
@@ -201,6 +202,7 @@ const IngredientBasedPage: React.FC = () => {
 
   return (
     <Layout>
+      <SEO title={t('ingredientBased.title')} description={t('ingredientBased.description')} path="/ingredient-based" />
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">
           🥘 {t('ingredientBased.title')}

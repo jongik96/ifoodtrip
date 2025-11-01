@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import Link from 'next/link';
+import { SEO } from '@/lib/seo';
 
 const PrivacyPage: React.FC = () => {
   const { t } = useTranslation('common');
@@ -13,6 +14,7 @@ const PrivacyPage: React.FC = () => {
 
   return (
     <Layout>
+      <SEO title={t('privacy.title')} description={t('privacy.lastUpdated')} path="/privacy" />
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
           <Link href="/" locale={currentLocale} className="text-primary-600 hover:underline">

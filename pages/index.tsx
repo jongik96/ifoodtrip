@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
+import { SEO } from '@/lib/seo';
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation('common');
@@ -13,6 +14,7 @@ const HomePage: React.FC = () => {
 
   return (
     <Layout>
+      <SEO title={t('home.title')} description={t('home.subtitle')} path="/" />
       {/* Modern Hero Section with Gradient */}
       <div className="relative text-center mb-12 md:mb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 opacity-10 blur-3xl"></div>

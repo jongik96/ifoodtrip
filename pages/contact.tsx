@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import Link from 'next/link';
+import { SEO } from '@/lib/seo';
 
 const ContactPage: React.FC = () => {
   const { t } = useTranslation('common');
@@ -18,6 +19,7 @@ const ContactPage: React.FC = () => {
 
   return (
     <Layout>
+      <SEO title={t('contact.title')} description={t('contact.description')} path="/contact" />
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <Link href="/" locale={currentLocale} className="text-primary-600 hover:underline">

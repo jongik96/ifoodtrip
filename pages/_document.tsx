@@ -9,12 +9,29 @@ class MyDocument extends Document {
 
   render() {
     const { locale } = this.props.__NEXT_DATA__;
+    const currentLocale = locale || 'ja';
+    const baseUrl = 'https://ifoodtrip.com';
+    
     return (
-      <Html lang={locale || 'ja'}>
+      <Html lang={currentLocale}>
         <Head>
           <meta charSet="utf-8" />
-          <meta name="description" content="AI-powered recipe generator with personalized recommendations" />
-          <link rel="icon" href="/favicon.ico" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          
+          {/* Favicon */}
+          <link rel="icon" type="image/png" href="/ifoodtrip-favi.png" />
+          <link rel="apple-touch-icon" href="/ifoodtrip-favi.png" />
+          
+          {/* Basic Meta Tags */}
+          <meta name="robots" content="index, follow" />
+          <meta name="theme-color" content="#f97316" />
+          
+          {/* Language Alternate Links */}
+          <link rel="alternate" hrefLang="ko" href={`${baseUrl}/ko`} />
+          <link rel="alternate" hrefLang="ja" href={`${baseUrl}/ja`} />
+          <link rel="alternate" hrefLang="en" href={`${baseUrl}/en`} />
+          <link rel="alternate" hrefLang="fr" href={`${baseUrl}/fr`} />
+          <link rel="alternate" hrefLang="x-default" href={baseUrl} />
         </Head>
         <body>
           <Main />

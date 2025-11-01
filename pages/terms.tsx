@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import Link from 'next/link';
+import { SEO } from '@/lib/seo';
 
 const TermsPage: React.FC = () => {
   const { t } = useTranslation('common');
@@ -13,6 +14,7 @@ const TermsPage: React.FC = () => {
 
   return (
     <Layout>
+      <SEO title={t('terms.title')} description={t('terms.lastUpdated')} path="/terms" />
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
           <Link href="/" locale={currentLocale} className="text-primary-600 hover:underline">

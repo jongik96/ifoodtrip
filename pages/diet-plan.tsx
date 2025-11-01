@@ -6,6 +6,7 @@ import Layout from '@/components/Layout';
 import RecipeResult from '@/components/RecipeResult';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { Recipe, DietFilters } from '@/types/recipe';
+import { SEO } from '@/lib/seo';
 
 const DietPlanPage: React.FC = () => {
   const { t, i18n } = useTranslation('common');
@@ -133,6 +134,7 @@ const DietPlanPage: React.FC = () => {
 
   return (
     <Layout>
+      <SEO title={t('dietPlan.title')} description={t('dietPlan.description')} path="/diet-plan" />
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">
           💪 {t('dietPlan.title')}

@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
+import { SEO } from '@/lib/seo';
 
 const AboutPage: React.FC = () => {
   const { t } = useTranslation('common');
@@ -13,6 +14,7 @@ const AboutPage: React.FC = () => {
 
   return (
     <Layout>
+      <SEO title={t('about.title')} description={t('about.subtitle')} path="/about" />
       {/* Hero Section */}
       <div className="text-center mb-8 md:mb-12">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">

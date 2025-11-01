@@ -9,6 +9,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { supabase } from '@/lib/supabase';
+import { SEO } from '@/lib/seo';
 
 interface BlogPost {
   id: string;
@@ -67,6 +68,11 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post, previousPost, nex
 
   return (
     <Layout>
+      <SEO 
+        title={post.title} 
+        description={post.description} 
+        path={`/blog/${post.id}`}
+      />
       <div className="max-w-4xl mx-auto">
         {/* Back to List */}
         <div className="mb-6">

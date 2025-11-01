@@ -291,6 +291,11 @@
     "nextPost": "Next Post",
     "noPrevious": "No previous post",
     "noNext": "No next post"
+  },
+  "seo": {
+    "siteName": "iFoodTrip",
+    "description": "AI-powered recipe generator - Create perfect cooking recipes with your available ingredients",
+    "keywords": "recipes, cooking, AI recipes, Korean food, Japanese food, diet, meal plan"
   }
 }
 

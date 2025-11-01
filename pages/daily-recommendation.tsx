@@ -8,6 +8,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import CountrySelector from '@/components/CountrySelector';
 import { Recipe } from '@/types/recipe';
 import { Country } from '@/types/database';
+import { SEO } from '@/lib/seo';
 
 const DailyRecommendationPage: React.FC = () => {
   const { t, i18n } = useTranslation('common');
@@ -95,6 +96,7 @@ const DailyRecommendationPage: React.FC = () => {
 
   return (
     <Layout>
+      <SEO title={t('dailyRecommendation.title')} description={t('dailyRecommendation.description')} path="/daily-recommendation" />
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">
           🌟 {t('dailyRecommendation.title')}

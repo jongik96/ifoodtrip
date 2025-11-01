@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
 import { supabase } from '@/lib/supabase';
+import { SEO } from '@/lib/seo';
 
 interface BlogPost {
   id: string;
@@ -88,6 +89,7 @@ const BlogListPage: React.FC = () => {
 
   return (
     <Layout>
+      <SEO title={t('blog.title')} description={t('blog.subtitle')} path="/blog" />
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

@@ -291,6 +291,11 @@
     "nextPost": "次の投稿",
     "noPrevious": "前の投稿がありません",
     "noNext": "次の投稿がありません"
+  },
+  "seo": {
+    "siteName": "iFoodTrip",
+    "description": "AIレシピ生成サービス - 手持ちの食材で完璧な料理レシピを作成",
+    "keywords": "レシピ, 料理, AIレシピ, 韓国料理, 日本料理, ダイエット, 食事プラン"
   }
 }
 
