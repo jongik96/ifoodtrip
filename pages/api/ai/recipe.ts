@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import OpenAI from 'openai';
 import { z } from 'zod';
 import { Recipe } from '@/types/recipe';
-import { Country, Locale } from '@/types/database';
+import { Country, Locale, Database } from '@/types/database';
 import { generateRecipePromptWithExamples } from '@/lib/prompts';
 import { supabase } from '@/lib/supabase';
 import * as crypto from 'crypto';
@@ -72,14 +72,15 @@ export default async function handler(
 
     // AI 요청 로그 저장
     try {
-      await supabase.from('ai_requests_log').insert({
+      const logData: Database['public']['Tables']['ai_requests_log']['Insert'] = {
         prompt_hash: promptHash,
         model: 'gpt-4',
         tokens_in: usage?.prompt_tokens || 0,
         tokens_out: usage?.completion_tokens || 0,
         response_excerpt: recipeMarkdown.substring(0, 200),
         status: 'success',
-      });
+      };
+      await supabase.from('ai_requests_log').insert(logData);
     } catch (logError) {
       console.error('Failed to log AI request:', logError);
     }
