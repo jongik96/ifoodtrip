@@ -1,3 +1,9 @@
+# ifoodtrip
+
+global ai recipe
+
+---
+
 # 🍳 AI Recipe Generator
 
 AI 기반 레시피 추천 서비스 - OpenAI와 Supabase를 활용한 맞춤형 요리 레시피 생성 플랫폼
@@ -212,9 +218,3 @@ AI Recipe Generator - Powered by OpenAI & Supabase
 ---
 
 Made with ❤️ and 🤖 AI
-
-
-
-
-
-
