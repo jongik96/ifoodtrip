@@ -29,6 +29,13 @@ class MyDocument extends Document {
           {/* Google Search Console Verification */}
           <meta name="google-site-verification" content="lNe09W1_Uu8MR7rQOAqDLtOhdsLTHMEOBeBAYD_dV_0" />
           
+          {/* Google AdSense */}
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8843011911940029"
+            crossOrigin="anonymous"
+          />
+          
           {/* Language Alternate Links */}
           <link rel="alternate" hrefLang="ko" href={`${baseUrl}/ko`} />
           <link rel="alternate" hrefLang="ja" href={`${baseUrl}/ja`} />
