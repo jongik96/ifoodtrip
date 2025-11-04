@@ -38,6 +38,16 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post, previousPost, nex
   const { t } = useTranslation('common');
   const router = useRouter();
 
+  // 데이터베이스의 \n 문자열을 실제 줄바꿈으로 변환하고 마크다운 형식으로 처리
+  const processContent = (content: string | undefined) => {
+    if (!content) return '';
+    // 이스케이프된 \n을 실제 줄바꿈으로 변환
+    let processed = content.replace(/\\n/g, '\n');
+    // 여러 연속된 줄바꿈 정리
+    processed = processed.replace(/\n{3,}/g, '\n\n');
+    return processed;
+  };
+
   if (!post) {
     return (
       <Layout>
@@ -127,48 +137,49 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post, previousPost, nex
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw]}
               components={{
+                br: ({ node, ...props }) => <br className="my-2" {...props} />,
                 h1: ({ node, ...props }) => (
-                  <h1 className="text-4xl font-bold text-gray-900 mb-4" {...props} />
+                  <h1 className="text-4xl font-bold text-gray-900 mb-6 mt-8" {...props} />
                 ),
                 h2: ({ node, ...props }) => (
-                  <h2 className="text-2xl font-semibold text-gray-900 mt-6 mb-4" {...props} />
+                  <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4" {...props} />
                 ),
                 h3: ({ node, ...props }) => (
-                  <h3 className="text-xl font-semibold text-gray-900 mt-4 mb-3" {...props} />
+                  <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3" {...props} />
                 ),
                 h4: ({ node, ...props }) => (
-                  <h4 className="text-lg font-semibold text-gray-900 mt-3 mb-2" {...props} />
+                  <h4 className="text-lg font-semibold text-gray-900 mt-4 mb-2" {...props} />
                 ),
                 ul: ({ node, ...props }) => (
-                  <ul className="list-disc list-inside space-y-2 my-4 text-gray-900" {...props} />
+                  <ul className="list-disc list-outside space-y-2 my-6 text-gray-900 ml-6" {...props} />
                 ),
                 ol: ({ node, ...props }) => (
-                  <ol className="list-decimal list-inside space-y-2 my-4 text-gray-900" {...props} />
+                  <ol className="list-decimal list-outside space-y-2 my-6 text-gray-900 ml-6" {...props} />
                 ),
                 li: ({ node, ...props }) => (
-                  <li className="text-gray-900" {...props} />
+                  <li className="text-gray-900 mb-2 leading-relaxed" {...props} />
                 ),
                 p: ({ node, ...props }) => (
-                  <p className="text-gray-900 mb-4 leading-relaxed" {...props} />
+                  <p className="text-gray-900 mb-6 leading-relaxed text-base" {...props} />
                 ),
                 strong: ({ node, ...props }) => (
                   <strong className="font-semibold text-gray-900" {...props} />
                 ),
                 em: ({ node, ...props }) => (
-                  <em className="text-gray-900" {...props} />
+                  <em className="text-gray-900 italic" {...props} />
                 ),
                 code: ({ node, ...props }) => (
-                  <code className="bg-gray-100 text-gray-900 px-1 py-0.5 rounded text-sm font-mono" {...props} />
+                  <code className="bg-gray-100 text-gray-900 px-2 py-1 rounded text-sm font-mono" {...props} />
                 ),
                 a: ({ node, ...props }) => (
                   <a className="text-primary-600 hover:text-primary-700 underline" {...props} />
                 ),
                 blockquote: ({ node, ...props }) => (
-                  <blockquote className="border-l-4 border-primary-300 pl-4 italic text-gray-900 my-4" {...props} />
+                  <blockquote className="border-l-4 border-primary-300 pl-6 italic text-gray-900 my-6 bg-gray-50 py-4 rounded-r" {...props} />
                 ),
               }}
             >
-              {post.content}
+              {processContent(post.content)}
             </ReactMarkdown>
           </div>
 

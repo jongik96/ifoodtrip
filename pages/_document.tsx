@@ -26,6 +26,9 @@ class MyDocument extends Document {
           <meta name="robots" content="index, follow" />
           <meta name="theme-color" content="#f97316" />
           
+          {/* Google Search Console Verification */}
+          <meta name="google-site-verification" content="lNe09W1_Uu8MR7rQOAqDLtOhdsLTHMEOBeBAYD_dV_0" />
+          
           {/* Language Alternate Links */}
           <link rel="alternate" hrefLang="ko" href={`${baseUrl}/ko`} />
           <link rel="alternate" hrefLang="ja" href={`${baseUrl}/ja`} />
