@@ -84,7 +84,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post, previousPost, nex
   };
 
   // 콘텐츠 길이 확인 (최소 300자 이상일 때만 AdSense 활성화)
-  const hasEnoughContent = post.content && post.content.trim().length >= 300;
+  const hasEnoughContent = Boolean(post.content && post.content.trim().length >= 300);
   
   return (
     <Layout>
