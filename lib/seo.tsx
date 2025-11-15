@@ -10,6 +10,7 @@ interface SEOProps {
   image?: string;
   path?: string;
   noindex?: boolean;
+  enableAdSense?: boolean; // AdSense 자동 광고 활성화 여부
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -19,6 +20,7 @@ export const SEO: React.FC<SEOProps> = ({
   image = '/ifoodtrip-og.png',
   path = '',
   noindex = false,
+  enableAdSense = false, // 기본값은 false (충분한 콘텐츠가 있을 때만 활성화)
 }) => {
   const router = useRouter();
   const { t } = useTranslation('common');
@@ -81,6 +83,17 @@ export const SEO: React.FC<SEOProps> = ({
       <link rel="alternate" hrefLang="en" href={alternateUrls.en} />
       <link rel="alternate" hrefLang="fr" href={alternateUrls.fr} />
       <link rel="alternate" hrefLang="x-default" href={baseUrl} />
+      
+      {/* Google AdSense - 충분한 콘텐츠가 있는 페이지에서만 활성화 */}
+      {enableAdSense && (
+        <>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8843011911940029"
+            crossOrigin="anonymous"
+          />
+        </>
+      )}
     </Head>
   );
 };

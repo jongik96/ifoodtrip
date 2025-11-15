@@ -51,6 +51,13 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post, previousPost, nex
   if (!post) {
     return (
       <Layout>
+        <SEO 
+          title={t('blog.notFound')} 
+          description=""
+          path={`/blog/${router.query.id}`}
+          enableAdSense={false} // 포스트가 없으면 AdSense 비활성화
+          noindex={true}
+        />
         <div className="max-w-4xl mx-auto">
           <div className="text-center py-16">
             <h1 className="text-3xl font-bold text-gray-800 mb-4">{t('blog.notFound')}</h1>
@@ -76,12 +83,16 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post, previousPost, nex
     });
   };
 
+  // 콘텐츠 길이 확인 (최소 300자 이상일 때만 AdSense 활성화)
+  const hasEnoughContent = post.content && post.content.trim().length >= 300;
+  
   return (
     <Layout>
       <SEO 
         title={post.title} 
         description={post.description} 
         path={`/blog/${post.id}`}
+        enableAdSense={hasEnoughContent} // 충분한 콘텐츠가 있을 때만 AdSense 활성화
       />
       <div className="max-w-4xl mx-auto">
         {/* Back to List */}

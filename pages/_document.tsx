@@ -29,12 +29,8 @@ class MyDocument extends Document {
           {/* Google Search Console Verification */}
           <meta name="google-site-verification" content="lNe09W1_Uu8MR7rQOAqDLtOhdsLTHMEOBeBAYD_dV_0" />
           
-          {/* Google AdSense */}
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8843011911940029"
-            crossOrigin="anonymous"
-          />
+          {/* Google AdSense - 조건부 로드 (각 페이지에서 활성화) */}
+          {/* 자동 광고는 충분한 콘텐츠가 있는 페이지에서만 활성화됩니다 */}
           
           {/* Language Alternate Links */}
           <link rel="alternate" hrefLang="ko" href={`${baseUrl}/ko`} />

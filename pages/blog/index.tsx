@@ -87,9 +87,19 @@ const BlogListPage: React.FC = () => {
     }
   };
 
+  // 게시물이 있고 충분한 콘텐츠가 있을 때만 AdSense 활성화
+  const hasEnoughContent = posts.length > 0 && posts.some(post => 
+    post.description && post.description.trim().length >= 100
+  );
+  
   return (
     <Layout>
-      <SEO title={t('blog.title')} description={t('blog.subtitle')} path="/blog" />
+      <SEO 
+        title={t('blog.title')} 
+        description={t('blog.subtitle')} 
+        path="/blog"
+        enableAdSense={hasEnoughContent} // 충분한 콘텐츠가 있을 때만 AdSense 활성화
+      />
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

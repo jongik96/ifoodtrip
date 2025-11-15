@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
+import { SEO } from '@/lib/seo';
 
 const NotFoundPage: React.FC = () => {
   const { t } = useTranslation('common');
@@ -13,6 +14,13 @@ const NotFoundPage: React.FC = () => {
 
   return (
     <Layout>
+      <SEO 
+        title={t('404.title')} 
+        description={t('404.description')} 
+        path="/404"
+        enableAdSense={false} // 404 페이지에는 콘텐츠가 없으므로 AdSense 비활성화
+        noindex={true}
+      />
       <div className="max-w-2xl mx-auto text-center py-16">
         <div className="mb-8">
           <div className="text-9xl font-bold text-gray-200 mb-4">404</div>
